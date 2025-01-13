@@ -1,0 +1,5 @@
+<%= turbo_frame_tag 'per_person' do %>
+    <p class="govuk-body">
+        This is an average of £<%= @application.amount / @application.people_count %> per person
+    </p>
+<% end %>

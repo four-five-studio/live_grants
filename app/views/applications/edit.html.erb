@@ -32,6 +32,8 @@
         <%= form.number_field :people_count, class: 'govuk-input', data: { action: 'keyup->auto-submit#submit' } %>
     </div>
 
+    <%= render partial: 'per_person' %>
+
     <div class="govuk-form-group">
         <%= form.label :inactivity, class: 'govuk-label' %>
         <%= form.number_field :inactivity, class: 'govuk-input', data: { action: 'keyup->auto-submit#submit' } %>
