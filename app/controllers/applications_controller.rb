@@ -12,7 +12,7 @@ class ApplicationsController < ApplicationController
     @application.update(application_params)
     respond_to do |format|
       format.html { redirect_to application_path(@application) }
-      format.turbo_stream
+      format.turbo_stream { render turbo_stream: turbo_stream.replace("average_amount", partial: "average_amount") }
     end
   end
 

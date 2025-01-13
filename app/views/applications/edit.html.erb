@@ -9,13 +9,7 @@
         <%= form.number_field :amount, class: 'govuk-input', data: { action: 'keyup->auto-submit#submit' } %>
     </div>
 
-    <p class="govuk-body <%= case (@application.amount - 4000).abs
-                 when 0..1000 then 'govuk-tag--green'
-                 when 1001..2000 then 'govuk-tag--orange'
-                 else 'govuk-tag--red'
-               end %>">
-        The average amount granted per application is £4000
-    </p>
+    <%= render partial: 'average_amount' %>
 
     <div class="govuk-form-group">
         <%= form.label :sport, class: 'govuk-label' %>

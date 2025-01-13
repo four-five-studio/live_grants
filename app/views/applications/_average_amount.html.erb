@@ -1,0 +1,9 @@
+<%= turbo_frame_tag 'average_amount' do %>
+    <p class="govuk-body <%= case (@application.amount - 4000).abs
+                    when 0..1000 then 'govuk-tag--green'
+                    when 1001..2000 then 'govuk-tag--orange'
+                    else 'govuk-tag--red'
+                end %>">
+        The average amount granted per application is £4000
+    </p>
+<% end %>
