@@ -1,34 +1,38 @@
-<%= form_for @application, data: { controller: 'auto-submit' } do |form| %>
-    <div class="field">
-        <%= form.label :name %>
-        <%= form.text_field :name, data: { action: 'keyup->auto-submit#submit' } %>
+<%= form_for @application, data: { controller: 'auto-submit' }, html: { class: 'govuk-form' } do |form| %>
+    <div class="govuk-form-group">
+        <%= form.label :name, class: 'govuk-label' %>
+        <%= form.text_field :name, class: 'govuk-input', data: { action: 'keyup->auto-submit#submit' } %>
     </div>
 
-    <div class="field">
-        <%= form.label :amount %>
-        <%= form.number_field :amount, data: { action: 'keyup->auto-submit#submit' } %>
+    <div class="govuk-form-group">
+        <%= form.label :amount, class: 'govuk-label' %>
+        <%= form.number_field :amount, class: 'govuk-input', data: { action: 'keyup->auto-submit#submit' } %>
     </div>
 
-    <p>
+    <p class="govuk-body <%= case (@application.amount - 4000).abs
+                 when 0..1000 then 'govuk-tag--green'
+                 when 1001..2000 then 'govuk-tag--orange'
+                 else 'govuk-tag--red'
+               end %>">
         The average amount granted per application is £4000
     </p>
 
-    <div class="field">
-        <%= form.label :sport %>
-        <%= form.text_field :sport, data: { action: 'keyup->auto-submit#submit' } %>
+    <div class="govuk-form-group">
+        <%= form.label :sport, class: 'govuk-label' %>
+        <%= form.text_field :sport, class: 'govuk-input', data: { action: 'keyup->auto-submit#submit' } %>
     </div>
 
-    <div class="field">
-        <%= form.label :people_count %>
-        <%= form.number_field :people_count, data: { action: 'keyup->auto-submit#submit' } %>
+    <div class="govuk-form-group">
+        <%= form.label :people_count, class: 'govuk-label' %>
+        <%= form.number_field :people_count, class: 'govuk-input', data: { action: 'keyup->auto-submit#submit' } %>
     </div>
 
-    <div class="field">
-        <%= form.label :inactivity %>
-        <%= form.number_field :inactivity, data: { action: 'keyup->auto-submit#submit' } %>
+    <div class="govuk-form-group">
+        <%= form.label :inactivity, class: 'govuk-label' %>
+        <%= form.number_field :inactivity, class: 'govuk-input', data: { action: 'keyup->auto-submit#submit' } %>
     </div>
 
-    <div class="actions">
-        <%= form.submit %>
+    <div class="govuk-form-group">
+        <%= form.submit class: 'govuk-button' %>
     </div>
 <% end %>
