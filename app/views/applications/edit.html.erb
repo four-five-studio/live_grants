@@ -13,7 +13,18 @@
 
     <div class="govuk-form-group">
         <%= form.label :sport, class: 'govuk-label' %>
-        <%= form.text_field :sport, class: 'govuk-input', data: { action: 'keyup->auto-submit#submit' } %>
+        <%= form.select :sport, options_for_select([
+          "Soccer", "Basketball", "Tennis", "Baseball", "Cricket", 
+          "Volleyball", "Swimming", "Track and Field", "Rugby", "Golf",
+          "Boxing", "Wrestling", "Cycling", "Ice Hockey", "Field Hockey",
+          "Table Tennis", "Badminton", "Skiing", "Snowboarding", "Surfing",
+          "Rock Climbing", "Figure Skating", "Gymnastics", "Rowing", "Archery",
+          "Fencing", "Judo", "Karate", "Water Polo", "Handball",
+          "Ultimate Frisbee", "Lacrosse", "Polo", "Curling", "Bowling",
+          "Squash", "Marathon Running", "Triathlon", "Weightlifting", "Diving",
+          "Sailing", "Canoeing", "Beach Volleyball", "Cross Country", "Parkour",
+          "Mixed Martial Arts", "Speed Skating", "Pickleball", "Equestrian", "Skateboarding"
+        ]), {}, { class: 'govuk-select', data: { action: 'change->auto-submit#submit' } } %>
     </div>
 
     <div class="govuk-form-group">
