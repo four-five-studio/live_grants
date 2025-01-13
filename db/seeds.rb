@@ -7,3 +7,5 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+Application.create!(name: "Croydon basketball association", amount: 3000, sport: "Basketball", people_count: 150, inactivity: 2)

@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  amount: 1
+  sport: MyString
+  people_count: 1
+  inactivity: 1
+
+two:
+  name: MyString
+  amount: 1
+  sport: MyString
+  people_count: 1
+  inactivity: 1
