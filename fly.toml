@@ -15,6 +15,7 @@ console_command = '/rails/bin/rails console'
 
 [processes]
   app = './bin/rake litestream:run ./bin/rails server'
+  worker = 'bundle exec sidekiq'
 
 [[mounts]]
   source = 'data'

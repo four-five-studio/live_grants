@@ -69,3 +69,4 @@ gem "litestream", "~> 0.12.0"
 gem "aws-sdk-s3", "~> 1.177", require: false
 
 gem "redis"
+gem "sidekiq"
