@@ -14,6 +14,7 @@ class ApplicationsController < ApplicationController
       format.html { redirect_to application_path(@application) }
       format.turbo_stream do
         render turbo_stream: [
+          turbo_stream.replace("score", partial: "score"),
           turbo_stream.replace("average_amount", partial: "average_amount"),
           turbo_stream.replace("per_person", partial: "per_person")
         ]

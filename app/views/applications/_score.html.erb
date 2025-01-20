@@ -1,0 +1,12 @@
+<%= turbo_frame_tag 'score' do %>
+    <% if @application.elegible? %>
+        <% if @application.score > 0 %>
+            <p class="govuk-body">On initial reading, this projects looks exactly the sort of thing we're keen to fund. We'd love you to submit it.</p>
+        <% else %>
+            <p class="govuk-body">On initial reading, this might not be a great fit for this fund. However, if you'd like to continue we'd be happy to take a look.</p>
+        <% end %>
+    <% else %>
+        <p class="govuk-body">This application is not elegible for funding.</p>
+        <p class="govuk-body"><%= @application.elegibility %></p>
+    <% end %>
+<% end %>

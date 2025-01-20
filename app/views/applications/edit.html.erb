@@ -1,3 +1,7 @@
+<h1>Grantee view</h1>
+
+<%= render partial: 'score' %>
+
 <%= form_for @application, data: { controller: 'auto-submit' }, html: { class: 'govuk-form' } do |form| %>
     <div class="govuk-form-group">
         <%= form.label :name, class: 'govuk-label' %>
@@ -36,7 +40,13 @@
 
     <div class="govuk-form-group">
         <%= form.label :inactivity, class: 'govuk-label' %>
-        <%= form.number_field :inactivity, class: 'govuk-input', data: { action: 'keyup->auto-submit#submit' } %>
+        <%= form.range_field :inactivity, in: 0..100, step: 1, class: 'govuk-input', list: 'inactivity-options', data: { action: 'input->auto-submit#submit' } %>
+        <datalist id="inactivity-options">
+            <option value="0">Not at all</option>
+            <option value="1">Some</option>
+            <option value="2">Mostly</option>
+            <option value="3">All</option>
+        </datalist>
     </div>
 
     <div class="govuk-form-group">
