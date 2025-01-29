@@ -64,9 +64,7 @@ end
 
 gem "dockerfile-rails", ">= 1.7", group: :development
 
-gem "litestream", "~> 0.12.0"
-
-gem "aws-sdk-s3", "~> 1.177", require: false
-
 gem "redis"
 gem "sidekiq"
+
+gem "pg", "~> 1.5"
