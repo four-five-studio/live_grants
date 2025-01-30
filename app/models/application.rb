@@ -23,6 +23,8 @@ class Application < ApplicationRecord
   end
 
   def per_person
-    amount / people_count
+    amount.to_i / people_count.to_i
+  rescue ZeroDivisionError
+    0
   end
 end
