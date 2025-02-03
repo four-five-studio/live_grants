@@ -5,6 +5,7 @@
         <% else %>
             <p class="govuk-body">On initial reading, this might not be a great fit for this fund. However, if you'd like to continue we'd be happy to take a look.</p>
         <% end %>
+        <input type="submit" name="commit" value="Submit Application" class="govuk-button" data-disable-with="Submit Application">
     <% else %>
         <p class="govuk-body">This application is not elegible for funding.</p>
         <p class="govuk-body"><%= @application.elegibility %></p>

@@ -27,4 +27,20 @@ class Application < ApplicationRecord
   rescue ZeroDivisionError
     0
   end
+
+  def self.average_per_person
+    30
+  end
+
+  def per_person_offset
+    (per_person - self.class.average_per_person).abs
+  end
+
+  def above_average_per_person?
+    per_person > self.class.average_per_person
+  end
+
+  def demographic_target_score
+    low_income + children + lgbtq + older
+  end
 end

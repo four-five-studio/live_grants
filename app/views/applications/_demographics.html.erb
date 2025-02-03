@@ -1,0 +1,11 @@
+<%= turbo_frame_tag 'demographics' do %>
+    <% if @application.demographic_target_score > 10 %>
+        <div class="govuk-inset-text govuk-tag--green">
+            This looks good! We are more likely to award funding to projects that can reach the groups we've prioritised.   
+        </div>
+    <% else %>
+        <div class="govuk-inset-text govuk-tag--red">
+            We're more likely to award funding if your project reaches groups we've prioritised. Later in this application you can explain why it's important that you reach the groups you've idenitifed.
+        </div>
+    <% end %>
+<% end %>

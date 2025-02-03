@@ -1,5 +1,15 @@
 <%= turbo_frame_tag 'per_person' do %>
-    <p class="govuk-body">
-        This is an average of £<%= @application.amount / @application.people_count %> per person
-    </p>
+    <% if @application.per_person < 10 %>
+        <div class="govuk-inset-text feedback govuk-tag--orange">
+            That's £<%= @application.per_person %> per person, which is £<%= @application.per_person_offset %> less than the amount we typically fund. This won't prevent you getting funding, but consider if a different amount is more realistic.
+        </div>
+    <% elsif @application.per_person > 60 %>
+        <div class="govuk-inset-text feedback govuk-tag--orange">
+            That's £<%= @application.per_person %> per person, which is £<%= @application.per_person_offset %> more than the amount we typically fund. This won't prevent you getting funding, but consider if a different amount is more realistic.
+        </div>
+    <% else %>
+        <div class="govuk-inset-text feedback govuk-tag--green">
+            That's £<%= @application.per_person %> per person. We typically fund projects at this level.
+        </div>
+    <% end %>
 <% end %>

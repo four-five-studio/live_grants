@@ -8,3 +8,15 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
+ .form-section {
+    display: block;
+    padding: 1em;
+    background-color: #F0F0F0;
+    border: 1px solid #000;
+    margin-bottom: 3em;
+ }
+
+ .feedback {
+    font-size: 0.2em;
+ }

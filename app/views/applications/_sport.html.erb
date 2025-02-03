@@ -1,0 +1,11 @@
+<%= turbo_frame_tag 'sport' do %>
+    <% if ["Football", "Rowing"].include?(@application.sport) %>
+        <div class="govuk-inset-text feedback govuk-tag--red">
+            <%= @application.sport %> isn't a high priority for funding. Later in this application you can explain why your project matters.
+        </div>
+    <% else %>
+        <div class="govuk-inset-text feedback govuk-tag--green">
+            We're keen to provide funding to <%= @application.sport %>
+        </div>
+    <% end %>
+<% end %>
