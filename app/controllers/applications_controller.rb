@@ -27,6 +27,6 @@ class ApplicationsController < ApplicationController
   private
 
   def application_params
-    params.require(:application).permit(:name, :amount, :sport, :people_count, :inactivity, :low_income, :children, :lgbtq, :older)
+    params.require(:application).permit(:name, :amount, :sport, :people_count, :inactivity, :low_income, :children, :lgbtq, :older, :lat, :long)
   end
 end

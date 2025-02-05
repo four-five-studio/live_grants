@@ -1,5 +1,13 @@
 <%= turbo_frame_tag 'location' do %>
-    <div class="govuk-inset-text govuk-tag--green">
-        Location feedback here
-    </div>
+    <% if @application.imd %>
+        <% if @application.imd['imd_decile'].to_i < 5 %>
+            <div class="govuk-inset-text govuk-tag--green">
+                <%= @application.imd['lsoa01nm'] %> is a high priority area.
+            </div>
+        <% else %>
+            <div class="govuk-inset-text govuk-tag--red">
+                <%= @application.imd['lsoa01nm'] %> is a low priority area.
+            </div>
+        <% end %>
+    <% end %>
 <% end %>

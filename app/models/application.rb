@@ -41,6 +41,17 @@ class Application < ApplicationRecord
   end
 
   def demographic_target_score
-    low_income + children + lgbtq + older
+    low_income.to_i + children.to_i + lgbtq.to_i + older.to_i
+  end
+
+  def imd
+    response = Net::HTTP.get(URI("https://imd.abscond.org/imd?lat=#{self.lat}&lon=#{self.long}"))
+    if response.present? && response["error"].nil?
+      JSON.parse(response)
+    else
+      nil
+    end
+  rescue
+      nil
   end
 end
