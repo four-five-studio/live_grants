@@ -23,7 +23,7 @@ class Application < ApplicationRecord
   def good_points
     points = []
     points << "You are asking for an expected amount of money per person" if per_person < 60 && per_person > 10
-    points << "You are working in an area with a high level of deprivation" if imd_decile < 5
+    points << "You are working in an area with a high level of deprivation" if imd_decile && imd_decile < 5
     points << "You are working with demographics that we are particularly interested in" if demographic_target_score > 10
     points << "We aren't currently funding much for #{primary_demographic} in #{location_name}" unless already_funding?(primary_demographic)
     points << "We aren't currently funding much for #{sport} in #{location_name}" unless already_funding?(sport)
@@ -34,7 +34,7 @@ class Application < ApplicationRecord
     points = []
     points << "It seems like you are asking for a lot of money per person" if per_person > 100
     points << "You're asking for less per person than we would expect" if per_person < 10
-    points << "You are working in an area with a low level of deprivation" if imd_decile > 5
+    points << "You are working in an area with a low level of deprivation" if imd_decile && imd_decile > 5
     points << "It doesn't look like you're including groups that we are particularly interested in funding" if demographic_target_score < 10
     points << "We already fund lots of organisations for #{primary_demographic} in #{location_name}" if already_funding?(primary_demographic)
     points << "We already fund lots of organisations for #{sport} in #{sport}" if already_funding?(sport)
