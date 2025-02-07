@@ -60,15 +60,17 @@
 
     <div class="form-section">
         <h2 class="govuk-heading-m">Location</h1>
-        <div class="govuk-form-group">
-            <%= form.label :lat, "Latitude", class: 'govuk-label' %>
-            <%= form.text_field :lat, class: 'govuk-input', data: { action: 'keyup->auto-submit#submit' } %>
-        </div>
-        <div class="govuk-form-group">
-            <%= form.label :long, "Longitude", class: 'govuk-label' %>
-            <%= form.text_field :long, class: 'govuk-input', data: { action: 'keyup->auto-submit#submit' } %>
-        </div>
+        <div data-controller="map">
+            <div class="govuk-form-group">
+                <%= form.label :lat, "Latitude", class: 'govuk-label' %>
+                <%= form.text_field :lat, class: 'govuk-input', data: { action: 'keyup->auto-submit#submit', 'map-target': 'lat' } %>
+            </div>
+            <div class="govuk-form-group">
+                <%= form.label :long, "Longitude", class: 'govuk-label' %>
+                <%= form.text_field :long, class: 'govuk-input', data: { action: 'keyup->auto-submit#submit', 'map-target': 'lng' } %>
+            </div>
 
+        </div>
         <%= render partial: 'location' %>
     </div>
 
