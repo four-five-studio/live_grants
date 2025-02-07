@@ -1,17 +1,10 @@
-<h1>Granter view</h1>
-
 <%= turbo_stream_from @application %>
 <h1 class="govuk-heading-l"><%= @application.name %></h1>
 
 <div class="govuk-summary-list">
     <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">Amount:</dt>
-        <dd class="govuk-summary-list__value"><%= @application.amount %></dd>
-    </div>
-
-    <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">Sport:</dt>
-        <dd class="govuk-summary-list__value"><%= @application.sport %></dd>
+        <dd class="govuk-summary-list__value">£<%= @application.amount %></dd>
     </div>
 
     <div class="govuk-summary-list__row">
@@ -20,7 +13,44 @@
     </div>
 
     <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">Inactivity:</dt>
-        <dd class="govuk-summary-list__value"><%= @application.inactivity %></dd>
+        <dt class="govuk-summary-list__key">Cost per person:</dt>
+        <dd class="govuk-summary-list__value">£<%= @application.per_person %></dd>
     </div>
+
+    <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">Sport:</dt>
+        <dd class="govuk-summary-list__value"><%= @application.sport %></dd>
+    </div>
+
+    <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">Older People:</dt>
+        <dd class="govuk-summary-list__value"><%= @application.older %></dd>
+    </div>
+
+    <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">Children:</dt>
+        <dd class="govuk-summary-list__value"><%= @application.children %></dd>
+    </div>
+
+    <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">LGBTQ:</dt>
+        <dd class="govuk-summary-list__value"><%= @application.lgbtq %></dd>
+    </div>
+
+    <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">Low Income:</dt>
+        <dd class="govuk-summary-list__value"><%= @application.low_income %></dd>
+    </div>
+
+    <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">Lower Statistical Output Area:</dt>
+        <dd class="govuk-summary-list__value"><%= @application.location_name %></dd>
+    </div>
+
+    <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">Deprivation Index Decile:</dt>
+        <dd class="govuk-summary-list__value"><%= @application.imd_decile %></dd>
+    </div>
+
+
 </div>
