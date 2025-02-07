@@ -13,21 +13,34 @@
             height: 100%;
             width: 50%;
             position: fixed;
+            overflow: hidden;
         }
         .left {
             left: 0;
+            border-right: 10px solid #000;
+            width: calc(50% - 10px);
         }
         .right {
             right: 0;
+        }
+        .header {
+            text-align: center;
+            background-color: #000;
+            color: white;
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+            font: 20px Arial, sans-serif;
         }
     </style>
 </head>
 <body>
     <div class="split left">
-        <iframe src="applications/1/edit" style="width:100%; height:100%; border:none;"></iframe>
+        <div class="header">Applicant View</div>
+        <iframe src="applications/1/edit" style="width:100%; height:calc(100% - 40px); border:none;"></iframe>
     </div>
     <div class="split right">
-        <iframe src="applications/1" style="width:100%; height:100%; border:none;"></iframe>
+        <div class="header">Case Worker View</div>
+        <iframe src="applications/1" style="width:100%; height:calc(100% - 40px); border:none;"></iframe>
     </div>
 </body>
 </html>
