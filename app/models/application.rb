@@ -46,11 +46,25 @@ class Application < ApplicationRecord
   end
 
   def imd
-    response = Net::HTTP.get(URI("https://imd.abscond.org/imd?lat=#{self.lat}&lon=#{self.long}"))
-    if response.present? && response["error"].nil?
-      JSON.parse(response)
-    else
-      nil
+    @imd_cache ||= begin
+      response = Net::HTTP.get(URI("https://imd.abscond.org/imd?lat=#{self.lat}&lon=#{self.long}"))
+      if response.present? && response["error"].nil?
+        JSON.parse(response)
+      else
+        nil
+      end
     end
+  end
+
+  def location_name
+    imd["lsoa01nm"] if imd.present?
+  end
+
+  def imd_decile
+    imd["imd_decile"].to_i if imd.present?
+  end
+
+  def applications_in_location
+    Random.new(location_name.hash).rand(0..10)
   end
 end

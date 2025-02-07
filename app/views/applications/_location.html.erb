@@ -1,13 +1,25 @@
 <%= turbo_frame_tag 'location' do %>
     <% if @application.imd %>
-        <% if @application.imd['imd_decile'].to_i < 5 %>
-            <div class="govuk-inset-text govuk-tag--green">
-                <%= @application.imd['lsoa01nm'] %> is a high priority area.
-            </div>
+        <% if @application.imd_decile < 5 %>
+            <% if @application.applications_in_location < 5 %>
+                <div class="govuk-inset-text govuk-tag--green">
+                    <%= @application.location_name %> is a high priority area, and we have recieved fewer applications than average here.
+                </div>
+            <% else %>
+                <div class="govuk-inset-text govuk-tag--orange">
+                    <%= @application.location_name %> is a high priority area, but we have recieved more applications than average here.
+                </div>
+            <% end %>
         <% else %>
-            <div class="govuk-inset-text govuk-tag--red">
-                <%= @application.imd['lsoa01nm'] %> is a low priority area.
-            </div>
+            <% if @application.applications_in_location < 5 %>
+                <div class="govuk-inset-text govuk-tag--orange">
+                    <%= @application.location_name %> is a low priority area, but we have recieved fewer applications than average here.
+                </div>
+            <% else %>
+                <div class="govuk-inset-text govuk-tag--red">
+                    <%= @application.location_name %> is a low priority area, and we have recieved more applications than average here.
+                </div>
+            <% end %>
         <% end %>
     <% end %>
 <% end %>
