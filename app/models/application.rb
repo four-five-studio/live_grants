@@ -1,4 +1,5 @@
 class Application < ApplicationRecord
+  require "net/http"
   broadcasts_refreshes
 
   def elegibility
@@ -51,7 +52,5 @@ class Application < ApplicationRecord
     else
       nil
     end
-  rescue
-      nil
   end
 end
