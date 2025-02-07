@@ -1,13 +1,35 @@
 <%= turbo_frame_tag 'score' do %>
+    <p class="govuk-body">Thank you.</p>
     <% if @application.elegible? %>
-        <% if @application.score > 0 %>
-            <p class="govuk-body">On initial reading, this projects looks exactly the sort of thing we're keen to fund. We'd love you to submit it.</p>
+        <% if @application.keen_to_hear_more? %>
+            <p class="govuk-body">We're keen to hear more about your project. Please Apply!</p>
         <% else %>
-            <p class="govuk-body">On initial reading, this might not be a great fit for this fund. However, if you'd like to continue we'd be happy to take a look.</p>
+            <p class="govuk-body">Your project might not be a great fit for this fund, but we're happy to take a look at it.</p>
         <% end %>
+        <% if @application.good_points.present? %>
+            <p class="govuk-body">We're particularly keen on the following:</p>
+        <% end %>
+        <ul class="govuk-list govuk-list--bullet">
+            <% @application.good_points.each do |point| %>
+                <li><%= point %></li>
+            <% end %>
+        </ul>
+        <% if @application.bad_points.present? %>
+            <p class="govuk-body">We're less keen on the following:</p>
+        <% end %>
+        <ul class="govuk-list govuk-list--bullet">
+            <% @application.bad_points.each do |point| %>
+                <li><%= point %></li>
+            <% end %>
+        </ul>
         <input type="submit" name="commit" value="Submit Application" class="govuk-button" data-disable-with="Submit Application">
     <% else %>
-        <p class="govuk-body">This application is not elegible for funding.</p>
-        <p class="govuk-body"><%= @application.elegibility %></p>
+        <div class="govuk-inset-text feedback govuk-tag--red">
+            <% if @application.amount > 10000 %>
+                Sorry. We cannot fund projects more than £10,000.
+            <% else %>
+                Sorry. We cannot fund projects less than £1,000.
+            <% end %>
+        </div>
     <% end %>
 <% end %>
