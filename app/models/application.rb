@@ -37,7 +37,7 @@ class Application < ApplicationRecord
     points << "You are working in an area with a low level of deprivation" if imd_decile && imd_decile > 5
     points << "It doesn't look like you're including groups that we are particularly interested in funding" if demographic_target_score < 10
     points << "We already fund lots of organisations for #{primary_demographic} in #{location_name}" if already_funding?(primary_demographic)
-    points << "We already fund lots of organisations for #{sport} in #{sport}" if already_funding?(sport)
+    points << "We already fund lots of organisations for #{sport} in #{location_name}" if already_funding?(sport)
     points
   end
 
