@@ -3,21 +3,21 @@
         <% if @application.imd_decile < 5 %>
             <% if @application.applications_in_location < 5 %>
                 <div class="govuk-inset-text govuk-tag--green">
-                    <%= @application.location_name %> is a high priority area, and we have recieved fewer applications than average here.
+                    <%= @application.location_name %> is a high priority area, and we have received fewer applications than average here.
                 </div>
             <% else %>
                 <div class="govuk-inset-text govuk-tag--orange">
-                    <%= @application.location_name %> is a high priority area, but we have recieved more applications than average here.
+                    <%= @application.location_name %> is a high priority area, but we have received more applications than average here.
                 </div>
             <% end %>
         <% else %>
             <% if @application.applications_in_location < 5 %>
                 <div class="govuk-inset-text govuk-tag--orange">
-                    <%= @application.location_name %> is a low priority area, but we have recieved fewer applications than average here.
+                    <%= @application.location_name %> is a low priority area, but we have received fewer applications than average here.
                 </div>
             <% else %>
                 <div class="govuk-inset-text govuk-tag--red">
-                    <%= @application.location_name %> is a low priority area, and we have recieved more applications than average here.
+                    <%= @application.location_name %> is a low priority area, and we have received more applications than average here.
                 </div>
             <% end %>
         <% end %>
