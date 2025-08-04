@@ -2,10 +2,12 @@ class Application < ApplicationRecord
   require "net/http"
   broadcasts_refreshes
 
+  validates_presence_of :name, :amount, :people_count, :sport
+
   def elegibility
-    if amount > 10000
+    if amount.to_i > 10000
       "We do not fund applications over £10,000"
-    elsif amount < 1000
+    elsif amount.to_i < 1000
       "We do not fund applications under £1,000"
     else
       true
